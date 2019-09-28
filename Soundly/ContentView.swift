@@ -15,11 +15,28 @@ struct MenuView: View {
             Color.init(red: 245/255, green: 247/255, blue: 250/255)
             .edgesIgnoringSafeArea(.all)
             
-            Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                Image("close")
-                    .padding()
-                    .foregroundColor(Color.init(red: 245/255, green: 247/255, blue: 250/255))
-                    .frame(width: 35.0, height: 35.0)
+            VStack {
+                
+                
+                Text("Noiise is a lightweight sound app designed to be used as background noise.")
+                    .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
+                    .multilineTextAlignment(.center)
+                    .padding(10.0)
+                Text("It’s best when used for when trying to focus on work or studies, or for getting to sleep.")
+                    .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
+                    .multilineTextAlignment(.center)
+                    .padding(10.0)
+                Text("It has been designed by Nikolai Bain and Nevin Jojo. feel free to contact us.")
+                    .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
+                    .multilineTextAlignment(.center)
+                    .padding(10.0)
+            
+                Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                    Image("close")
+                        .padding()
+                        .foregroundColor(Color.init(red: 245/255, green: 247/255, blue: 250/255))
+                        .frame(width: 35.0, height: 35.0)
+                }
             }
         }
     }
@@ -43,8 +60,7 @@ struct ContentView: View {
                         }
                     }) {
                         Image("night")
-                            .padding()
-                            .padding()
+                            .padding(35)
                             .background(Color.init(red:219/255, green:225/255, blue: 231/255))
                             .clipShape(Circle())
                             .font(.largeTitle)
@@ -55,24 +71,22 @@ struct ContentView: View {
                 HStack() {
                     Button(action: {self.playOrPause(soundNum: 2)}) {
                        Image("rain")
-                           .padding()
-                        .padding()
+                           .padding(35)
                            .background(Color.init(red:219/255, green:225/255, blue: 231/255))
                            .clipShape(Circle())
                            .font(.largeTitle)
                            .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
-                    }
+                    }.padding(12)
                     
                     
                     Button(action: {self.playOrPause(soundNum: 3)}) {
                        Image("sun")
-                           .padding()
-                            .padding()
+                           .padding(35)
                            .background(Color.init(red:219/255, green:225/255, blue: 231/255))
                            .clipShape(Circle())
                            .font(.largeTitle)
                            .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
-                    }
+                    }.padding(12)
                 }
                 
                 HStack(alignment: .center) {
