@@ -12,13 +12,13 @@ struct MenuView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
         ZStack {
-            Color.init(red: 28/255, green: 32/255, blue: 41/255)
+            Color.init(red: 245/255, green: 247/255, blue: 250/255)
             .edgesIgnoringSafeArea(.all)
             
             Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
                 Image("close")
                     .padding()
-                    .foregroundColor(Color.init(red:169/255, green:176/255, blue: 184/255))
+                    .foregroundColor(Color.init(red: 245/255, green: 247/255, blue: 250/255))
                     .frame(width: 35.0, height: 35.0)
             }
         }
@@ -31,7 +31,7 @@ struct ContentView: View {
     
     var body: some View {
         ZStack {
-            Color.init(red: 20/255, green: 23/255, blue: 31/255)
+            Color.init(red: 245/255, green: 247/255, blue: 250/255)
             .edgesIgnoringSafeArea(.all)
             
             VStack(alignment: .center) {
@@ -44,10 +44,11 @@ struct ContentView: View {
                     }) {
                         Image("night")
                             .padding()
-                            .background(Color.init(red:44/255, green:51/255, blue: 61/255))
+                            .padding()
+                            .background(Color.init(red:219/255, green:225/255, blue: 231/255))
                             .clipShape(Circle())
                             .font(.largeTitle)
-                            .foregroundColor(Color.init(red:169/255, green:176/255, blue: 184/255))
+                            .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
                     }
                 }
                 
@@ -55,19 +56,22 @@ struct ContentView: View {
                     Button(action: {self.playOrPause(soundNum: 2)}) {
                        Image("rain")
                            .padding()
-                           .background(Color.init(red:44/255, green:51/255, blue: 61/255))
+                        .padding()
+                           .background(Color.init(red:219/255, green:225/255, blue: 231/255))
                            .clipShape(Circle())
                            .font(.largeTitle)
-                           .foregroundColor(Color.init(red:169/255, green:176/255, blue: 184/255))
+                           .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
                     }
+                    
                     
                     Button(action: {self.playOrPause(soundNum: 3)}) {
                        Image("sun")
                            .padding()
-                           .background(Color.init(red:44/255, green:51/255, blue: 61/255))
+                            .padding()
+                           .background(Color.init(red:219/255, green:225/255, blue: 231/255))
                            .clipShape(Circle())
                            .font(.largeTitle)
-                           .foregroundColor(Color.init(red:169/255, green:176/255, blue: 184/255))
+                           .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
                     }
                 }
                 
@@ -86,7 +90,7 @@ struct ContentView: View {
                         }
                     }) {
                         Circle()
-                            .stroke(Color.init(red:169/255, green:176/255, blue: 184/255), lineWidth: 3)
+                            .stroke(Color.init(red:214/255, green:219/255, blue: 225/255), lineWidth: 3)
                             .frame(width: 35, height: 35)
                     }.sheet(isPresented: self.$menuDisplayed) {
                         MenuView()
