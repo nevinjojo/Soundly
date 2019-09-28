@@ -7,9 +7,11 @@
 //
 
 import SwiftUI
+import AVFoundation
 
 struct MenuView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         ZStack {
             Color.init(red: 28/255, green: 32/255, blue: 41/255)
@@ -28,6 +30,7 @@ struct MenuView: View {
 struct ContentView: View {
     @State var soundPlaying = false
     @State var menuDisplayed = false
+    var audioPlayer = AVAudioPlayer()
     
     var body: some View {
         ZStack {
@@ -38,7 +41,6 @@ struct ContentView: View {
                 HStack(alignment: .center) {
                     Button(action: {
                         withAnimation {
-                            self.soundPlaying.toggle()
                             self.playOrPause(soundNum: 1)
                         }
                     }) {
@@ -52,7 +54,11 @@ struct ContentView: View {
                 }
                 
                 HStack() {
-                    Button(action: {self.playOrPause(soundNum: 2)}) {
+                    Button(action: {
+                        withAnimation {
+                            self.playOrPause(soundNum: 2)
+                        }
+                    }) {
                        Image("rain")
                            .padding()
                            .background(Color.init(red:44/255, green:51/255, blue: 61/255))
@@ -61,7 +67,11 @@ struct ContentView: View {
                            .foregroundColor(Color.init(red:169/255, green:176/255, blue: 184/255))
                     }
                     
-                    Button(action: {self.playOrPause(soundNum: 3)}) {
+                    Button(action: {
+                        withAnimation {
+                            self.playOrPause(soundNum: 3)
+                        }
+                    }) {
                        Image("sun")
                            .padding()
                            .background(Color.init(red:44/255, green:51/255, blue: 61/255))
@@ -95,16 +105,27 @@ struct ContentView: View {
             }
         }
     }
-
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
+    
+    func playOrPause(soundNum: Int) {
+        switch soundNum {
+        case 1:
+            print(1)
+            self.playPlayer(playerNum: soundNum)
+        case 2:
+            print(2)
+        case 3:
+            print(3)
+        default:
+            print(1)
         }
     }
-
-
-    func playOrPause(soundNum: Int) {
-        //TODO use soundplaying state to decide to play sound or not
-        print(soundNum)
+    
+    func playPlayer(playerNum: Int) {
+//        do {
+//            self.audioPlayer = try AVAudioPlayer(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "sample", ofType: "mp3")!))
+//            audioPlayer.prepareToPlay()
+//        } catch {
+//            print(error)
+//        }
     }
 }
