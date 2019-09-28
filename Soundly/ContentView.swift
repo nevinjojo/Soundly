@@ -75,14 +75,6 @@ struct ContentView: View {
                     }
                 }
                 
-                //TODO: Replace Dividers with some sort of margin top??
-                Divider()
-                Divider()
-                Divider()
-                Divider()
-                Divider()
-                Divider()
-                
                 HStack(alignment: .center) {
                     Button(action: {
                         withAnimation {
