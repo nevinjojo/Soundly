@@ -14,10 +14,10 @@ struct MenuView: View {
         ZStack {
             Color.init(red: 245/255, green: 247/255, blue: 250/255)
             .edgesIgnoringSafeArea(.all)
-            
+
             VStack {
-                
-                
+
+
                 Text("Noiise is a lightweight sound app designed to be used as background noise.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
@@ -30,11 +30,11 @@ struct MenuView: View {
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
                     .padding(10.0)
-            
+
                 Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
                     Image("close")
                         .padding()
-                        .foregroundColor(Color.init(red: 245/255, green: 247/255, blue: 250/255))
+                        .foregroundColor(Color.init(red:214/255, green:219/255, blue: 225/255))
                         .frame(width: 35.0, height: 35.0)
                 }
             }
@@ -45,12 +45,12 @@ struct MenuView: View {
 struct ContentView: View {
     @State var soundPlaying = false
     @State var menuDisplayed = false
-    
+
     var body: some View {
         ZStack {
             Color.init(red: 245/255, green: 247/255, blue: 250/255)
             .edgesIgnoringSafeArea(.all)
-            
+
             VStack(alignment: .center) {
                 HStack(alignment: .center) {
                     Button(action: {
@@ -67,7 +67,7 @@ struct ContentView: View {
                             .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
                     }
                 }
-                
+
                 HStack() {
                     Button(action: {self.playOrPause(soundNum: 2)}) {
                        Image("rain")
@@ -77,8 +77,8 @@ struct ContentView: View {
                            .font(.largeTitle)
                            .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
                     }.padding(12)
-                    
-                    
+
+
                     Button(action: {self.playOrPause(soundNum: 3)}) {
                        Image("sun")
                            .padding(35)
@@ -88,21 +88,21 @@ struct ContentView: View {
                            .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
                     }.padding(12)
                 }
-                
-                HStack(alignment: .center) {
-                    Button(action: {
-                        withAnimation {
-                            self.menuDisplayed.toggle()
-                        }
-                    }) {
-                        Circle()
-                            .stroke(Color.init(red:214/255, green:219/255, blue: 225/255), lineWidth: 3)
-                            .frame(width: 35, height: 35)
-                    }.sheet(isPresented: self.$menuDisplayed) {
-                        MenuView()
-                    }
-                }
             }
+
+            HStack(alignment: .center) {
+                Button(action: {
+                    withAnimation {
+                        self.menuDisplayed.toggle()
+                    }
+                }) {
+                    Circle()
+                        .stroke(Color.init(red:214/255, green:219/255, blue: 225/255), lineWidth: 3)
+                        .frame(width: 35, height: 35)
+                }.sheet(isPresented: self.$menuDisplayed) {
+                    MenuView()
+                }
+            }.padding(.top, 600)
         }
     }
 
