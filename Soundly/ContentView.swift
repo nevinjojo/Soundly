@@ -16,8 +16,6 @@ struct MenuView: View {
             .edgesIgnoringSafeArea(.all)
 
             VStack {
-
-
                 Text("Noiise is a lightweight sound app designed to be used as background noise.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
@@ -30,14 +28,15 @@ struct MenuView: View {
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
                     .padding(10.0)
-
-                Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
-                    Image("close")
-                        .padding()
-                        .foregroundColor(Color.init(red:214/255, green:219/255, blue: 225/255))
-                        .frame(width: 35.0, height: 35.0)
-                }
             }
+            
+            Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
+                Image("close")
+                    .padding()
+                    .foregroundColor(Color.init(red:214/255, green:219/255, blue: 225/255))
+                    .frame(width: 35.0, height: 35.0)
+            }
+            .padding(.top, 600)
         }
     }
 }
