@@ -9,9 +9,10 @@
 import SwiftUI
 import AVFoundation
 
-var audioPlayer: AVAudioPlayer?  // Audio player for sounds
-let aColor = UIColor(named: "customBackColor")  // BackgroundColour for dark mode
-// View that displays the menu contents
+var audioPlayer: AVAudioPlayer?  /// Audio player for sounds
+let aColor = UIColor(named: "customBackColor")  /// BackgroundColour for dark mode
+
+/// View that displays the menu contents
 struct MenuView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     
@@ -55,7 +56,7 @@ struct MenuView: View {
 }
 
 
-// View that displays the Root view components
+/// View that displays the Root view components
 struct ContentView: View {
     // States of the 3 audio buttons and the menu button
     @State var sound1Playing = false
@@ -131,7 +132,7 @@ struct ContentView: View {
         }
     }
     
-    // Sets the path for the audio player to the appropriate file
+    /// Sets the path for the audio player to the appropriate file
     private func initializePlayer(soundNum: Int) -> AVAudioPlayer? {
         guard let path = Bundle.main.path(forResource: "\(soundNum)", ofType: "mp3") else {
             return nil
@@ -140,12 +141,13 @@ struct ContentView: View {
         return try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
     }
     
-    // Changes the button states and requests to initialise the appopriate file
+    /// Changes the button states and requests to initialise the appopriate file
     private func playOrPauseSounds(soundNum: Int) {
         switch soundNum {
         case 1:
             self.sound1Playing.toggle()
             audioPlayer = self.initializePlayer(soundNum: 1)
+            audioPlayer?.numberOfLoops = -1
             if (self.sound1Playing) {
                 self.sound2Playing = false
                 self.sound3Playing = false
@@ -156,6 +158,7 @@ struct ContentView: View {
         case 2:
             self.sound2Playing.toggle()
             audioPlayer = self.initializePlayer(soundNum: 2)
+            audioPlayer?.numberOfLoops = -1
             if (self.sound2Playing) {
                 self.sound1Playing = false
                 self.sound3Playing = false
@@ -166,6 +169,7 @@ struct ContentView: View {
         case 3:
             self.sound3Playing.toggle()
             audioPlayer = self.initializePlayer(soundNum: 3)
+            audioPlayer?.numberOfLoops = -1
             if (self.sound3Playing) {
                 self.sound1Playing = false
                 self.sound2Playing = false
