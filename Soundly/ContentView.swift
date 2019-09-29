@@ -6,13 +6,11 @@
 //  Designed by Nikolai Bain.
 //  Copyright © 2019 Nevin Jojo. All rights reserved.
 //
-
 import SwiftUI
 import AVFoundation
 
 var audioPlayer: AVAudioPlayer?  // Audio player for sounds
 let aColor = UIColor(named: "customBackColor")  // BackgroundColour for dark mode
-
 // View that displays the menu contents
 struct MenuView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
