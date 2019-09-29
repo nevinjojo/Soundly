@@ -6,7 +6,6 @@
 //  Designed by Nikolai Bain.
 //  Copyright © 2019 Nevin Jojo. All rights reserved.
 //
-
 import SwiftUI
 import AVFoundation
 
