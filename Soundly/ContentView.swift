@@ -1,35 +1,51 @@
 //
 //  ContentView.swift
-//  Soundly
+//  Sound Fox
 //
 //  Created by Nevin Jojo on 28/09/19.
+//  Designed by Nikolai Bain.
 //  Copyright © 2019 Nevin Jojo. All rights reserved.
 //
 
 import SwiftUI
+import AVFoundation
 
+var audioPlayer: AVAudioPlayer?  // Audio player for sounds
+
+// View that displays the menu contents
 struct MenuView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    
     var body: some View {
         ZStack {
             Color.init(red: 245/255, green: 247/255, blue: 250/255)
             .edgesIgnoringSafeArea(.all)
 
+            // Menu About Text
             VStack {
-                Text("Noiise is a lightweight sound app designed to be used as background noise.")
+                Text("Sound Fox is a lightweight custom sound app designed to be used as background noise.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
                     .padding(10.0)
-                Text("It’s best when used for when trying to focus on work or studies, or for getting to sleep.")
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
+                
+                Text("It’s best when used for focusing on work, studies, or sleep.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
                     .padding(10.0)
-                Text("It has been designed by Nikolai Bain and Nevin Jojo. feel free to contact us.")
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
+                
+                Text("It has been designed and developed by Nikolai Bain and Nevin Jojo. feel free to contact us.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
                     .padding(10.0)
+                    .padding(.leading, 10)
+                    .padding(.trailing, 10)
             }
             
+            // Menu Close Button
             Button(action: {self.presentationMode.wrappedValue.dismiss()}) {
                 Image("close")
                     .padding()
@@ -41,21 +57,27 @@ struct MenuView: View {
     }
 }
 
+
+// View that displays the Root view components
 struct ContentView: View {
-    @State var soundPlaying = false
+    // States of the 3 audio buttons and the menu button
+    @State var sound1Playing = false
+    @State var sound2Playing = false
+    @State var sound3Playing = false
     @State var menuDisplayed = false
 
     var body: some View {
         ZStack {
+            // Background colout of ContentView
             Color.init(red: 245/255, green: 247/255, blue: 250/255)
             .edgesIgnoringSafeArea(.all)
 
             VStack(alignment: .center) {
+                // Top Button
                 HStack(alignment: .center) {
                     Button(action: {
                         withAnimation {
-                            self.soundPlaying.toggle()
-                            self.playOrPause(soundNum: 1)
+                            self.playOrPauseSounds(soundNum: 1)
                         }
                     }) {
                         Image("night")
@@ -68,17 +90,23 @@ struct ContentView: View {
                 }
 
                 HStack() {
-                    Button(action: {self.playOrPause(soundNum: 2)}) {
+                    // Left Button
+                    Button(action: {
+                        self.playOrPauseSounds(soundNum: 2)
+                    }) {
                        Image("rain")
                            .padding(35)
                            .background(Color.init(red:219/255, green:225/255, blue: 231/255))
                            .clipShape(Circle())
                            .font(.largeTitle)
                            .foregroundColor(Color.init(red:122/255, green:135/255, blue: 149/255))
-                    }.padding(12)
+                    }
+                    .padding(12)
 
-
-                    Button(action: {self.playOrPause(soundNum: 3)}) {
+                    // Right Button
+                    Button(action: {
+                        self.playOrPauseSounds(soundNum: 3)
+                    }) {
                        Image("sun")
                            .padding(35)
                            .background(Color.init(red:219/255, green:225/255, blue: 231/255))
@@ -89,6 +117,7 @@ struct ContentView: View {
                 }
             }
 
+            // Menu Button
             HStack(alignment: .center) {
                 Button(action: {
                     withAnimation {
@@ -101,19 +130,54 @@ struct ContentView: View {
                 }.sheet(isPresented: self.$menuDisplayed) {
                     MenuView()
                 }
-            }.padding(.top, 600)
+            }.padding(.top, 620)
         }
     }
-
-    struct ContentView_Previews: PreviewProvider {
-        static var previews: some View {
-            ContentView()
+    
+    // Sets the path for the audio player to the appropriate file
+    private func initializePlayer(soundNum: Int) -> AVAudioPlayer? {
+        guard let path = Bundle.main.path(forResource: "\(soundNum)", ofType: "mp3") else {
+            return nil
         }
+
+        return try? AVAudioPlayer(contentsOf: URL(fileURLWithPath: path))
     }
-
-
-    func playOrPause(soundNum: Int) {
-        //TODO use soundplaying state to decide to play sound or not
-        print(soundNum)
+    
+    // Changes the button states and requests to initialise the appopriate file
+    private func playOrPauseSounds(soundNum: Int) {
+        switch soundNum {
+        case 1:
+            self.sound1Playing.toggle()
+            audioPlayer = self.initializePlayer(soundNum: 1)
+            if (self.sound1Playing) {
+                self.sound2Playing = false
+                self.sound3Playing = false
+                audioPlayer?.play()
+            } else {
+                audioPlayer?.stop()
+            }
+        case 2:
+            self.sound2Playing.toggle()
+            audioPlayer = self.initializePlayer(soundNum: 2)
+            if (self.sound2Playing) {
+                self.sound1Playing = false
+                self.sound3Playing = false
+                audioPlayer?.play()
+            } else {
+                audioPlayer?.stop()
+            }
+        case 3:
+            self.sound3Playing.toggle()
+            audioPlayer = self.initializePlayer(soundNum: 3)
+            if (self.sound3Playing) {
+                self.sound1Playing = false
+                self.sound2Playing = false
+                audioPlayer?.play()
+            } else {
+                audioPlayer?.stop()
+            }
+        default:
+            print("Invalid soundNum.")
+        }
     }
 }

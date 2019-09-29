@@ -1,4 +1,4 @@
-# Soundly
+# Sound Fox
 
 A lightweight customised sound app.
 

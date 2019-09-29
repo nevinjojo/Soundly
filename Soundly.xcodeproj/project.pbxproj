@@ -14,10 +14,12 @@
 		DA4165FD233F491500E36B60 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA4165FC233F491500E36B60 /* Preview Assets.xcassets */; };
 		DA416600233F491500E36B60 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DA4165FE233F491500E36B60 /* LaunchScreen.storyboard */; };
 		DA41660D233F53BB00E36B60 /* 1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA41660C233F53BB00E36B60 /* 1.mp3 */; };
+		DA41660F2340515800E36B60 /* 2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA41660E2340515800E36B60 /* 2.mp3 */; };
+		DA4166112340523E00E36B60 /* 3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = DA4166102340523E00E36B60 /* 3.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DA4165F0233F491400E36B60 /* Soundly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Soundly.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA4165F0233F491400E36B60 /* Sound Fox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sound Fox.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA4165F3233F491400E36B60 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DA4165F5233F491400E36B60 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		DA4165F7233F491400E36B60 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -26,6 +28,8 @@
 		DA4165FF233F491500E36B60 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DA416601233F491500E36B60 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DA41660C233F53BB00E36B60 /* 1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1.mp3; sourceTree = "<group>"; };
+		DA41660E2340515800E36B60 /* 2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 2.mp3; sourceTree = "<group>"; };
+		DA4166102340523E00E36B60 /* 3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 3.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,7 +54,7 @@
 		DA4165F1233F491400E36B60 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DA4165F0233F491400E36B60 /* Soundly.app */,
+				DA4165F0233F491400E36B60 /* Sound Fox.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -81,6 +85,8 @@
 		DA416607233F518F00E36B60 /* Sounds */ = {
 			isa = PBXGroup;
 			children = (
+				DA4166102340523E00E36B60 /* 3.mp3 */,
+				DA41660E2340515800E36B60 /* 2.mp3 */,
 				DA41660C233F53BB00E36B60 /* 1.mp3 */,
 			);
 			path = Sounds;
@@ -103,7 +109,7 @@
 			);
 			name = Soundly;
 			productName = Soundly;
-			productReference = DA4165F0233F491400E36B60 /* Soundly.app */;
+			productReference = DA4165F0233F491400E36B60 /* Sound Fox.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -144,8 +150,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA4166112340523E00E36B60 /* 3.mp3 in Resources */,
 				DA41660D233F53BB00E36B60 /* 1.mp3 in Resources */,
 				DA416600233F491500E36B60 /* LaunchScreen.storyboard in Resources */,
+				DA41660F2340515800E36B60 /* 2.mp3 in Resources */,
 				DA4165FD233F491500E36B60 /* Preview Assets.xcassets in Resources */,
 				DA4165FA233F491500E36B60 /* Assets.xcassets in Resources */,
 			);
@@ -306,7 +314,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nevinjojo.Soundly;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Sound Fox";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -326,7 +334,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.nevinjojo.Soundly;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Sound Fox";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
