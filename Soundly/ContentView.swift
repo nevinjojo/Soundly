@@ -11,6 +11,7 @@ import SwiftUI
 import AVFoundation
 
 var audioPlayer: AVAudioPlayer?  // Audio player for sounds
+let aColor = UIColor(named: "customBackColor")  // BackgroundColour for dark mode
 
 // View that displays the menu contents
 struct MenuView: View {
@@ -23,26 +24,24 @@ struct MenuView: View {
 
             // Menu About Text
             VStack {
-                Text("Sound Fox is a lightweight custom sound app designed to be used as background noise.")
+                Text("Sound Fox is a lightweight custom sound app designed to be used as background noise for day to day activities.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
-                    .padding(10.0)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
-                
-                Text("It’s best when used for focusing on work, studies, or sleep.")
+                    .padding(.bottom, 10.0)
+                    .padding(.leading, 50.0)
+                    .padding(.trailing, 50.0)
+                Text("It is best when used for focusing on work, studies, or sleep.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
-                    .padding(10.0)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
-                
-                Text("It has been designed and developed by Nikolai Bain and Nevin Jojo. feel free to contact us.")
+                    .padding(.bottom, 10.0)
+                    .padding(.leading, 50.0)
+                    .padding(.trailing, 50.0)
+                Text("It is designed and developed by Nikolai Bain and Nevin Jojo. Feel free to contact us.")
                     .foregroundColor(Color(red: 135/255, green: 147/255, blue: 159/255))
                     .multilineTextAlignment(.center)
-                    .padding(10.0)
-                    .padding(.leading, 10)
-                    .padding(.trailing, 10)
+                    .padding(.bottom, 10.0)
+                    .padding(.leading, 50.0)
+                    .padding(.trailing, 50.0)
             }
             
             // Menu Close Button
