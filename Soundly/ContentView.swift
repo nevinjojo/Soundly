@@ -8,6 +8,8 @@
 
 import SwiftUI
 
+let aColor = UIColor(named: "customBackColor")
+
 struct MenuView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
     var body: some View {
