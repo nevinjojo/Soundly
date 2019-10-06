@@ -10,7 +10,7 @@ import SwiftUI
 import AVFoundation
 
 var audioPlayer: AVAudioPlayer?  /// Audio player for sounds
-let aColor = UIColor(named: "customBackColor")  /// BackgroundColour for dark mode
+let aColor = UIColor(named: "customBackColor")  /// BackgroundColour for dark mod
 
 /// View that displays the menu contents
 struct MenuView: View {
@@ -143,6 +143,13 @@ struct ContentView: View {
     
     /// Changes the button states and requests to initialise the appopriate file
     private func playOrPauseSounds(soundNum: Int) {
+        do {
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSession.Category.playback)
+            try AVAudioSession.sharedInstance().setActive(true)
+        } catch {
+            print(error)
+        }
+        
         switch soundNum {
         case 1:
             self.sound1Playing.toggle()
